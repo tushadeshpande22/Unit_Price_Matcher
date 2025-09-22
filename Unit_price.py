@@ -37,7 +37,7 @@ if raw_file:
         raw_df = None
 
 # Function for fuzzy matching
-def fuzzy_match_item_code(raw_code, master_codes, threshold=50):
+def fuzzy_match_item_code(raw_code, master_codes, threshold=80):
     if pd.isna(raw_code):
         return None
     match, score, _ = process.extractOne(
@@ -84,4 +84,5 @@ if st.button("🔍 Match & Get Prices"):
             data=output,
             file_name="updated_with_prices_and_units.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
         )
